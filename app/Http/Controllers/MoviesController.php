@@ -51,7 +51,7 @@ class MoviesController extends Controller
     /**
      * Movie page
      */
-    public function show($id)
+    public function movie_page($id)
     {
         $movieDbAuthToken = config('services.tmdb.token');
 

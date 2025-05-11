@@ -1,9 +1,9 @@
 <div class="mt-8">
-    <a href="{{ route('movies.show', $movie['id']) }}">
+    <a href="{{ route('movies.movie_page', $movie['id']) }}">
         <img src="{{$imageConfig.$movie["poster_path"]}}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
     </a>
     <div class="mt-2">
-        <a href="{{ route('movies.show', $movie['id']) }}" class="text-lg mt-2 hover:text-gray:300">{{$movie["original_title"]}}</a>
+        <a href="{{ route('movies.movie_page', $movie['id']) }}" class="text-lg mt-2 hover:text-gray:300">{{$movie["original_title"]}}</a>
         <div class="flex items-center text-gray-400 text-sm mt-1">
             <svg class="fill-current text-orange-500 w-4 size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path fill-rule="evenodd"
@@ -15,10 +15,6 @@
             <span class="mx-2">|</span>
             <span>{{\Illuminate\Support\Facades\Date::parse($movie['release_date'])->format('M d, Y')}}</span>
         </div>
-        <div class="text-gray-400 text-sm">
-            @foreach($movie["genre_ids"] as $genreId)
-                {{ $genres->get($genreId) }} @if(!$loop->last), @endif
-            @endforeach
-        </div>
+        <div class="text-gray-400 text-sm">@foreach($movie["genre_ids"] as $genreId){{ $genres->get($genreId) }}@if(!$loop->last),@endif @endforeach</div>
     </div>
 </div>
